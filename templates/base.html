@@ -1,0 +1,165 @@
+<html>
+<head>
+    {% load static %}
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:bold' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top " data-spy="affix" data-offset-top="100">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+      <center>
+      <ul class="nav navbar-nav">
+        <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}><a href="{% url 'home'%}" id="home">Home</a></li>
+        <li {% if request.resolver_match.url_name == 'bloghome' %}class="active"{% endif %}><a href="{% url 'blog:bloghome'%}">Blog</a></li>
+        <li {% if request.resolver_match.url_name == 'doubtshome' %}class="active"{% endif %}><a href="{% url 'doubts:doubtshome'%}">Doubts</a></li>
+        <li {% if request.resolver_match.url_name == 'testlist' %}class="active"{% endif %}><a href="{% url 'tests:testlist' %}">Tests</a></li>
+        <li {% if request.resolver_match.url_name == 'about' %}class="active"{% endif %}><a href="{% url 'about' %}">About</a></li>
+      </ul>
+      <center>
+      {% block search %}
+      {% endblock search%}
+      <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
+        <li ><a href="{% url 'users:logout' %}">Logout</a></li>
+        {% else %}       
+        <li ><a href="{% url 'users:register' %}">Register</a></li>
+        <li ><a style="cursor: pointer;"data-toggle="modal" data-target="#login">Login</a></li>
+        {% endif %}
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+</nav>
+
+  <div id="login" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Senior Secondary</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+
+<h2>Login</h2>
+  <form method="post" action="{% url 'users:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-default" data-dismiss="modal">Login</button>
+      </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+<style>
+h1{
+   margin: 0px;
+   padding: 0px;
+}
+.navbar {
+    margin-bottom: 0;
+    margin-top: 0;
+    background-color: transparent;
+    background: transparent;
+    border-color: transparent;
+    z-index: 9999;
+    border: 0;
+    font-size:12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 1px;
+    border-radius: 0;
+}
+  .navbar li{
+
+  font-family: 'Cabin Sketch';
+  font-weight: 800;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important; 
+    font-size: 22px;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #404040 !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+.affix {
+      top: 0;
+      width: 100%;
+      z-index: 9999 !important;
+      background-color: #404040;
+  }
+@media (min-width: 1300px ){
+  .navbar-nav li{
+    margin-left: 6em;
+  }
+  #home{
+  margin-left: 9.5em;
+  }
+}
+@media (max-width: 1300px){ 
+  .navbar li{
+    margin-left: 4rem;
+  }
+}
+@media (max-width: 900px){ 
+  .navbar li{
+    margin-left: 1.3rem;
+  }
+}
+@media (max-width: 768px){ 
+  .navbar{
+    background-color: #404040;
+    position: static;
+  }
+}
+@media (min-width: 768px){
+    .navbar-right li{
+    margin-left: 0.5em;
+  }
+}
+</style>
+	{% block content %}
+	{% endblock content %}
+
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

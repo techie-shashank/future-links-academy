@@ -1,0 +1,321 @@
+{% extends "base.html" %}
+{% block content %}
+  {% load staticfiles %}
+
+	<div class="jumbotrono">
+    <div class="row cover" >
+  <h1 id="main-heading" >Future Links<br> Academy</h1>
+
+<div id="myCarousel" class=" hidden-xs col-sm-12 carousel slide text-center" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <div class="item active" >
+    <h4 >"We are investing our knowledge,experience,efforts <br>to make your child creative"<span></span></h4>
+    </div>
+    <div class="item" >
+      <h4>The more you learn, the more you earn<br><span>John Doe, Salesman, Rep Inc</span></h4>
+    </div>
+    <div class="item" >
+      <h4>See the future of our child with our vision<br><span>Chandler Bing, Actor, FriendsAlot</span></h4>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+
+<div class="container-fluid">
+  <div class="text-center">
+    <h2 style="font-family: 'Josefin Slab';  font-weight: 1000; font-size: 6em;">Courses</h2><br>
+  </div>
+  <div class="row" style="margin-left: 40px; margin-right: 40px;">
+   <div class="col-sm-4">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading" >
+          <img src="{% static 'media/images/courseone.jpg' %}" >
+        </div>
+        <div class="panel-body" style="padding-top: 0em; text-align: left;">
+          <h2 style="font-weight: 600;"> Primary </h2>
+          <p>This is a very good course for students of 5th to 8th Class</p>
+          <button type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">View Details</button>
+        </div>
+      </div> 
+    </div> 
+
+    <div class="col-sm-4">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading" >
+          <img src="{% static 'media/images/coursesecond.jpg' %}" ">
+        </div>
+        <div class="panel-body" style="padding-top: 0em; text-align: left;">
+          <h2 style="font-weight: 600;"> High Secondary </h2>
+          <p>This is a very good course for students of 5th to 8th Class</p>
+          <button style="float:left;" type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">View Details</button>
+        </div>
+      </div> 
+    </div> 
+   <div class="col-sm-4">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading" >
+          <img src="{% static 'media/images/coursethree.jpg' %}">
+        </div>
+        <div class="panel-body" style="padding-top: 0em; text-align: left;">
+          <h2 style="font-weight: 600;"> Senior Secondary</h2>
+          <p>This is a very good course for students of 5th to 8th Class</p>
+          <button type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal3">View Details</button>
+        </div>
+        </div>
+      </div> 
+    </div> 
+  </div>
+
+
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Primary</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">High Secondary</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div id="myModal3" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Senior Secondary</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+</div>
+
+
+<!-- footer -->
+  <div class="container-fluid footer" style="background-color: #404040; color: #fff; margin-top: 2em;margin-left: 0em;">
+  <h2 class="text-center" style="font-family: 'Josefin Slab'; font-size: 2em; font-weight: 600;">CONTACT US</h2>
+  <div class="row">
+    <div class="col-sm-12 text-center" >
+        <div class="details">
+          <i class="fa fa-map-marker"></i>
+          <p style=" ">Behind Matrix Saloon , Pehowa</p>
+          <i class="fa fa-phone"></i>
+          <p> +919896761614 </p>
+          <i class="fa fa-envelope"></i>
+          <p>success93rajat@gmail.com</p>
+        </div>
+          <div class="footer-icons">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-github"></i></a>
+        </div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  body{
+    font-size: 100%;
+  }
+  .modal{
+    margin-top: 5em;
+  }
+
+.jumbotrono { 
+    background-image: url('{% static 'media/images/board2.jpg' %}');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff;
+    height: 50em;
+    margin-top: 0;
+}
+.cover{
+    height: 50em; 
+    width: 160em;
+    display: table-cell;
+    vertical-align: middle;
+}
+#main-heading{
+    font-family: 'Cabin Sketch', sans-serif;
+    font-weight: 400;
+    font-size: 8em;
+    margin-top:0.35em;
+    letter-spacing: 0.02em;
+}
+
+p{
+  font-size: 1.8em;
+}
+.cover h1{
+  text-align: center;
+}
+
+.carousel-control.left {
+    background-image: none;
+    box-shadow: none;
+}
+.carousel-inner .item{
+  text-align: center;
+  font-family: 'Cabin Sketch';
+  font-weight: 400;
+  letter-spacing: 0.20vh;
+  font-size: 2em;
+}
+
+.carousel-inner .item h4{
+  font-size: 1.2em;
+}
+.panel {
+    border-radius:1em;
+    transition: box-shadow 0.5s;
+}
+
+.panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+
+.panel-footer .btn:hover {
+    border: 1px solid #00ffff;
+    background-color: #fff !important;
+    color: #f4511e;
+}
+.panel-footer .btn {
+    margin: 15px 0;
+    background-color: #3DA132;
+    color: #fff;
+}
+
+.panel-heading img{
+  width:100%; 
+  height: 18em; 
+  border-top-left-radius: 1em; 
+  border-top-right-radius: 1em;
+}
+.panel-heading {
+    background-color: #0066CC;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 0em;
+    border-bottom-right-radius: 0em;
+    padding: 0em;
+    text-align: center;
+}
+
+
+
+.panel-footer {
+    background-color: #fff !important;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.panel-footer h3 {
+    font-size: 32px;
+}
+
+.panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+}
+.footer{
+  background-color: #292c2f;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  width: 100%;
+  font: 1em sans-serif;
+
+}
+
+.footer p{
+   display: inline-block;
+  color: #ffffff;
+  font-size: 1.5em;
+}
+
+.details i{
+  background-color:  #33383b;
+  color: #ffffff;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  margin: 10px 15px;
+  vertical-align: middle;
+}
+.details p{
+  margin-right: 5em;
+}
+.footer-icons{
+  vertical-align: middle;
+
+}
+
+.footer-icons i{
+  background-color:  #33383b;
+  color: #ffffff;
+  border-radius: 10%;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  text-align: center;
+  line-height: 42px;
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;
+  vertical-align: middle;
+}
+
+</style>
+{% endblock content %}

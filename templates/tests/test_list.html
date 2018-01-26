@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if perms.tests.add_test %}
+<a href="{% url 'tests:add_test_paper'%}">Add Test</a>
+{% endif %}
+	{% for obj in object_list %}
+		<a href="{{ obj.get_absolute_url }}">{{obj.title}}</p><br>
+	{% endfor %}
+
+{% endblock content %}

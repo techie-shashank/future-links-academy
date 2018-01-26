@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+	<a href="{% url 'doubts:AskQuestion' %}">Ask a Question</a>
+	{% for obj in object_list %}
+		<a href="{{ obj.get_absolute_url }}">{{obj.content}}</a><br>
+	{% endfor %}
+
+<h1>Popular</h1>
+{% for pop in popular %}
+	<a href="{{ pop.get_absolute_url }}">{{ pop.content }}</a><br>
+{% endfor %}
+{% endblock content %}

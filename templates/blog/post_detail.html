@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>{{ object.title }}</h1><br>
+	<p>{{ object.description }}</p>
+    <p>
+{% if user.is_authenticated %}
+    {% if perms.tests.add_question %}
+    <a href="{% url 'blog:postupdate' slug=object.slug %}">Update Post</a>
+    <a href="{% url 'blog:postdelete' slug=object.slug %}">Delete Post</a>
+    {% endif %}
+        <button id="like-button" name="{{ object.slug }}" class="btn btn-primary" type="button">
+        {{ name }}
+        {{object.total_likes}}
+        </button>
+{% endif %}
+</p>
+	  <div>
+            <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Send</button>
+    </form>
+        </div>
+            <hr>
+            {% for comment in post.comments_set.all %}
+                <div class=" col-md-12 comment">
+                    <div >{{ comment.created_date }}</div>
+                    <strong>{{ comment.author }}</strong>
+                    <p>{{ comment.text|linebreaks }}</p>
+                </div>
+            {% empty %}
+                <p>No comments here yet :(</p>
+            {% endfor %}
+<script>
+    $("#like-button").click(function(e){
+  e.preventDefault();
+  $.ajax({
+    type: 'POST',
+    url: "{% url 'blog:likes' %}",
+    data: {'slug': $(this).attr('name'), 'csrfmiddlewaretoken': '{{csrf_token}}'},
+    dataType: "json",
+    success: function(response){
+      $("#like-button").text(response.name + " " + response.likes_count);
+    },
+    error: function(rs, r){
+      alert(rs.responseText);
+    }
+  });
+});
+
+</script>
+{% endblock content %}

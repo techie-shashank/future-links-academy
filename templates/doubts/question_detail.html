@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>{{ object.content }}</h1>
+  <p>
+    {% if user.is_authenticated %}
+          <button class="vote-button" name="{{ object.id }}" class="btn btn-primary" type="button">
+          {{ question_vote }}
+          {{ object.total_votes}}
+          </button>
+    {% endif %}
+    </p>
+	<form method="POST"> {% csrf_token %}
+		{{form.as_p}}
+		<button type='submit'>Save</button>
+	</form>
+	{% for ans,name in array%}
+		<p>{{ ans.text }}</p><br>
+		<p>
+		{% if user.is_authenticated %}
+        	<button class="upvote-button" name="{{ ans.id }}" class="btn btn-primary" type="button">
+        	{{ name }}
+        	{{ ans.total_upvotes}}
+        	</button>
+		{% endif %}
+		</p>
+	{% endfor %}
+
+<script>
+    $(".upvote-button").click(function(e){
+  e.preventDefault();
+  $.ajax({
+    type: 'POST',
+    url: "{% url 'doubts:upvotes' %}",
+    data: {'pk': $(this).attr('name'), 'csrfmiddlewaretoken': '{{csrf_token}}'},
+    dataType: "json",
+    success: function(response){
+      $(e.target).text( response.name + " " + response.upvotes_count);
+      alert("success");
+    },
+    error: function(rs, r){
+      alert(rs.responseText);
+    }
+  });
+});
+
+$(".vote-button").click(function(e){
+  e.preventDefault();
+  $.ajax({
+    type: 'POST',
+    url: "{% url 'doubts:votes' %}",
+    data: {'pk': $(this).attr('name'), 'csrfmiddlewaretoken': '{{csrf_token}}'},
+    dataType:"json",
+    success: function(response){
+      $(e.target).text( response.name + " " + response.upvotes_count);
+      alert("success");
+    },
+    error: function(rs, r){
+      alert(rs.responseText);
+    }
+  });
+});
+
+</script>
+{% endblock content %}

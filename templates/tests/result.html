@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> Your Score is {{ score }} </h1>
+<h2> Following questions are wrong </h2>
+{% for wrong in wrong_answers %}
+	<h4>{{wrong}}</h4>
+{% endfor %}
+{% endblock content %}

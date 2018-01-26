@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if perms.tests.add_question %}
+	<a href="{% url 'tests:add_question' slug=object.slug %}" >Add Questions</a>
+	<a href="{% url 'tests:marksheet' slug=object.slug %}" >Students Marksheet</a>
+{% else %}
+	<p id="demo"></p>
+
+<script>
+
+var minutes = {{ object.time_limit }}-1;
+
+var seconds = 60;
+
+var x = setInterval(function() {
+  document.getElementById("demo").innerHTML =  minutes + "m " + seconds + "s ";
+ 
+  seconds--;
+  if(seconds == 0){
+  	minutes--;
+  	seconds = 60;
+  }
+  if (minutes < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("myform").submit();
+  }
+}, 1000);
+</script>
+{% endif %}
+
+	<h1>{{ object.title}}</h1>
+	<form method="POST" id="myform">
+		{% csrf_token %}
+	{% for ques in object.question_set.all %}
+		<h2>{{ ques.question}}</h2>
+			<h5>{{ ques.option1 }}</h5>
+			<h5>{{ ques.option2  }}</h5>
+			<h5>{{ ques.option3  }}</h5>
+			<h5>{{ ques.option4  }}</h5>
+			Your Answer:<input type="text" name="{{ ques.id }}">
+			{% endfor %}
+	  <input type="submit" value="Submit">
+	</form>
+
+{% endblock content %}
