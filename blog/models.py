@@ -10,12 +10,12 @@ class Post(models.Model):
 	owner       = models.ForeignKey(User)
 	title 		= models.CharField(max_length=100)
 	category 	= models.CharField(max_length = 25)
-	by 			= models.CharField(max_length=25)
 	description = models.CharField(max_length = 5000)
 	timestamp 	= models.DateTimeField( auto_now_add = True )
 	Updated 	= models.DateTimeField( auto_now = True )
 	slug 		= models.SlugField( null=True,blank=True )
 	likes 		= models.ManyToManyField(User, related_name='likes')
+	pic 		= models.FileField(blank=True, null=True)
 
 	@property
 	def total_likes(self):

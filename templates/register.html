@@ -1,10 +1,33 @@
 {% extends 'base.html' %}
+{% block title %}
+Registration Form
+{% endblock %}
 
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
+
+{% load widget_tweaks %}
+
+<div class="contatiner-fluid top" style="width:70%;">
+<form method="post" novalidate>
+  {% csrf_token %}
+
+  {% include 'base_form.html' with form=form %}
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>
+
+<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  padding-top: 80px;
+}
+.top{
+	margin-left: 2em;
+}
+</style>
 {% endblock %}

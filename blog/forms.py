@@ -1,22 +1,23 @@
 from django import forms
 from .models import Post,Comments
-from .validators import validate_by
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 
 class AddPostCreateForm(forms.ModelForm):
-	by = forms.CharField(validators=[validate_by])
+	description = forms.CharField(widget=forms.Textarea(attrs={'rows':7, 'cols':102,'class':'form-control'}), label='Content')
 	class Meta:
 		model = Post
 		fields = [
 			'title',
 			'category',
-			'by',
 			'description',
+			'pic',
 		]
 
+
 class CommentForm(forms.ModelForm):
+	text = forms.CharField(widget=forms.Textarea(attrs={'rows':7, 'cols':102,'class':'form-control'}), label='')
 	class Meta:
 		model = Comments
 		fields = ( 'text', )

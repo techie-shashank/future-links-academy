@@ -1,6 +1,78 @@
 {% extends 'base.html' %}
+{% block title %}
+Leaderboard
+{% endblock %}
+
 {% block content %}
-{% for student in object.score_set.all%}
-<p>  {{student.user }} &nbsp{{student.marks }} {{ student.wrong_questions }}</p>
-{% endfor %}
+
+<div class="container">
+    	<div class="row">
+
+			<div class="col-md-6">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title">Leaderboard</h3>
+					</div>
+					<table class="table table-hover" id="task-table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Name</th>
+								<th>Marks</th>
+								<th>Wrong Questions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for student in object.score_set.all%}
+							<tr>
+								<td>{{forloop.counter}}</td>
+								<td>{{student.user }}</td>
+								<td>{{student.marks }} </td>
+								{% if student.wrong_questions %}
+								<td>{{student.wrong_questions }}</td>
+								{% else %}
+								<td>0</td>
+								{% endif %}
+							</tr>
+							{% endfor %}
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  padding-top: 80px;
+}
+    	.row{
+		    margin-top:40px;
+		    padding: 0 10px;
+		}
+		.clickable{
+		    cursor: pointer;   
+		}
+
+		.panel-heading div {
+			margin-top: -18px;
+			font-size: 15px;
+		}
+		.panel-heading div span{
+			margin-left:5px;
+		}
+		.panel-body{
+			display: none;
+		}
+
+</style>
 {% endblock content %}

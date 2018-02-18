@@ -14,6 +14,7 @@ class Question(models.Model):
 	slug 		= models.SlugField( null=True,blank=True )
 	votes  		= models.ManyToManyField(User, related_name='votes')
 	timestamp	= models.DateTimeField(auto_now_add= True)
+	subject		= models.CharField(max_length=500,default='others')
 
 	@property
 	def total_votes(self):
@@ -29,9 +30,10 @@ def rl_pre_save_receiver(sender, instance, *args, **kwargs):
 pre_save.connect(rl_pre_save_receiver, sender=Question)
 
 class Answers(models.Model):
-	question = models.ForeignKey(Question)
-	text     = models.CharField(max_length=5000)
-	upvotes  = models.ManyToManyField(User, related_name='upvote')
+	question 	= models.ForeignKey(Question)
+	text     	= models.CharField(max_length=5000)
+	upvotes  	= models.ManyToManyField(User, related_name='upvote')
+	timestamp	= models.DateTimeField(auto_now_add= True)
 
 	@property
 	def total_upvotes(self):

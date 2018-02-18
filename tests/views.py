@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from .forms import TestForm, QuestionForm
 from django.views.generic.base import TemplateView
-
+from django.http import JsonResponse
 
 
 class TestList(generic.ListView):
@@ -21,23 +21,22 @@ class TestPaperView(generic.DetailView):
 	def post(self, request, *args, **kwargs):
 		slug = self.kwargs.get("slug")
 		this = Test.objects.get(slug=slug)
-		score = 0
-		wrong_answers = []
-		for ques in this.question_set.all():
-			if ques.right_answer == self.request.POST[str(ques.id)]:
-				score= score + 1
-			else:
-				wrong_answers.append(ques.question_no)
-		created,result = Score.objects.get_or_create(test=this,marks=score,user=request.user)
+		score = self.request.POST['score']
+		print(score)
+		created = Score.objects.filter(user= request.user)
 		if created:
-			return HttpResponse("You've already submitted the test")	
-		string = " ".join(str(x) for x in wrong_answers)
-		result.wrong_questions = string
+			return HttpResponse("You've already submitted the test")
+		result = Score.objects.create(test=this,marks=score,user=request.user)
 		result.save()
-		return render(request,'tests/result.html',{
-			'score' : score,
-			'wrong_answers': wrong_answers,
-			})
+		return JsonResponse({})
+
+	def get_context_data(self,*args,**kwargs):
+		context = super(TestPaperView,self).get_context_data(*args,**kwargs)
+		slug = self.kwargs.get("slug")
+		this = Test.objects.get(slug=slug)
+		context['score_objects'] = this.score_set.all()[:2]
+		return context
+
 
 class AddTestView(generic.CreateView):
 	form_class = TestForm
@@ -77,6 +76,7 @@ class Marksheet(generic.DetailView):
 	def get_context_data(self,*args,**kwargs):
 		context = super(Marksheet,self).get_context_data(*args,**kwargs)
 		return context
+
 
 
 

@@ -1,7 +1,22 @@
 {% extends 'base.html' %}
+
+{% block title %}
+Delete Post
+{% endblock %}
+
+
 {% block content %}
 	<form action="" method="post">{% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
-    <input type="submit" value="Confirm" />
+    <h2>Are you sure you want to delete "{{ object }}"?</h2>
+    <button type="submit" class="btn-primary btn" value="Confirm">Confirm</button>
 </form>
+<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  padding-top: 80px;
+}
+</style>
 {% endblock content %}

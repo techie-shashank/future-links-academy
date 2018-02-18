@@ -1,10 +1,50 @@
 {% extends 'base.html' %}
+{% block title %}
+Add Post
+{% endblock %}
+
 {% block content %}
-	{% if form.errors %}
-	{{ form.errors }}
-	{% endif %}
-	<form method="POST"> {% csrf_token %}
-		{{form.as_p}}
-		<button type='submit'>Save</button>
-	</form>
+
+{% load widget_tweaks %}
+
+<div class="contatiner-fluid top" style="width:70%;">
+<form method="post"  enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+
+  {% include 'base_form.html' with form=form %}
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>
+
+<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  padding-top: 80px;
+}
+.top{
+	margin-left: 2em;
+}
+
+
+@media (max-width: 768px){ 
+  body{
+    padding-top: 0px;
+  }
+  .side{
+    display:inline-block;
+    float:center;
+  }
+  .container-fluid{
+    padding-top: 10px;
+
+  }
+}
+</style>
+
+
 {% endblock content %}

@@ -62,5 +62,19 @@ def activate(request, uidb64, token):
     else:
         return render(request, 'account_activation_invalid.html')
 
+def login_view(request):
+    msg = []
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request,user)
+                return render(request,'home.html',{'errors': msg})
+        else:
+            return HttpResponse('invalid');
+    
+
 def account_activation_sent(request):
-	return HttpResponse("msgsent")
+	return HttpResponse("Click on the activation link sent to the email address entered to complete the registration process")

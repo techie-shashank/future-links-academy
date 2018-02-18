@@ -1,12 +1,116 @@
 {% extends 'base.html' %}
-{% block content %}
-	<a href="{% url 'doubts:AskQuestion' %}">Ask a Question</a>
-	{% for obj in object_list %}
-		<a href="{{ obj.get_absolute_url }}">{{obj.content}}</a><br>
-	{% endfor %}
+{% block title %}
+Doubts Home
+{% endblock %}
 
-<h1>Popular</h1>
+{% block content %}
+
+<div class="col-md-9" >
+	  <div class="text-left" style="margin-left:2em;">
+    <h2 style="font-family: 'Josefin Slab';  font-weight: 1000; font-size: 2.5em;">Recent Questions</h2><br>
+  </div>
+    {% for obj in object_list %}
+   	<div class="col-sm-12">
+    	<div class="list-group">
+    		<a href="{{ obj.get_absolute_url }}" class="list-group-item">
+      		<h4 class="list-group-item-heading">{{ obj.content }}?</h4>
+      	<p class="list-group-item-text"><b>Category</b> :{{obj.subject}}</p>
+        <p class="list-group-item-text"> Upvotes {{obj.total_votes}}</p> 
+    	</a>
+	</div>
+	</div>
+{% endfor%}
+</div>
+
+
+<div class="col-md-3" >
+		<a href="{% url 'doubts:AskQuestion' %}"  class="btn-lg btn-primary text-center center-block" style="width:80%;" role="button"> Ask Question </a><br>
+<div class="col-sm-12 text-center">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Frequently Asked</div>
+      <div class="panel-body">
 {% for pop in popular %}
-	<a href="{{ pop.get_absolute_url }}">{{ pop.content }}</a><br>
+  <a href="{{ pop.get_absolute_url }}">{{ pop.content }}</a><br>
 {% endfor %}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  width:100%;
+  padding-top: 80px;
+  display:inline-block;
+  height:100%;
+}
+@media (max-width: 768px){ 
+  body{
+    padding-top: 0px;
+  }
+  .side{
+    display:inline-block;
+    float:center;
+  }
+}
+
+.panel {
+    border-radius:1em;
+    transition: box-shadow 0.5s;
+}
+
+.panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+
+.panel-footer .btn:hover {
+    border: 1px solid #00ffff;
+    background-color: #fff !important;
+    color: #f4511e;
+}
+.panel-footer .btn {
+    margin: 15px 0;
+    background-color: #3DA132;
+    color: #fff;
+}
+
+.panel-heading img{
+  width:100%; 
+  height: 12em; 
+  border-top-left-radius: 1em; 
+  border-top-right-radius: 1em;
+}
+.panel-heading {
+    background-color: #0066CC;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 0em;
+    border-bottom-right-radius: 0em;
+    padding: 0em;
+    text-align: center;
+}
+
+
+
+.panel-footer {
+    background-color: #fff !important;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.panel-footer h3 {
+    font-size: 32px;
+}
+
+.panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+}
+
 {% endblock content %}

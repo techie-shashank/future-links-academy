@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% block title %}
+Future Links Academy Homepage
+{% endblock %}
+
 {% block content %}
   {% load staticfiles %}
 
@@ -12,10 +16,10 @@
     <h4 >"We are investing our knowledge,experience,efforts <br>to make your child creative"<span></span></h4>
     </div>
     <div class="item" >
-      <h4>The more you learn, the more you earn<br><span>John Doe, Salesman, Rep Inc</span></h4>
+      <h4>"The more you learn, the more you earn"</h4>
     </div>
     <div class="item" >
-      <h4>See the future of our child with our vision<br><span>Chandler Bing, Actor, FriendsAlot</span></h4>
+      <h4>"See the future of your child with our vision"</h4>
     </div>
   </div>
 
@@ -23,50 +27,85 @@
 </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" style="background-image: url('{% static 'media/images/home2.jpg' %}');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100%;
+">
   <div class="text-center">
-    <h2 style="font-family: 'Josefin Slab';  font-weight: 1000; font-size: 6em;">Courses</h2><br>
+    <h2 style="font-family: 'Josefin Slab';  color: #fff; font-weight: 1000; font-size: 6em;">Courses</h2><br>
   </div>
   <div class="row" style="margin-left: 40px; margin-right: 40px;">
    <div class="col-sm-4">
+    <div class="col-sm-11"> 
       <div class="panel panel-default text-center">
-        <div class="panel-heading" >
-          <img src="{% static 'media/images/courseone.jpg' %}" >
+        <div class="heading" >
+          <h2><b>Grades 5<sup>th</sup> to 8<sup>th</sup></b></h2>
+          <h3><b>All</b> Subjects</h3>
         </div>
-        <div class="panel-body" style="padding-top: 0em; text-align: left;">
-          <h2 style="font-weight: 600;"> Primary </h2>
-          <p>This is a very good course for students of 5th to 8th Class</p>
-          <button type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">View Details</button>
+        <div class="panel-body" style="padding-top: 2em; text-align: left;">
+          <ul class="fa-ul">
+              <li ><i class="fa-li fa fa-check"></i>Full syllabus coverage + Revision at the end</li>
+              <li><i class="fa-li fa fa-check"></i> Regular classes under fixed schedule</li>
+              <li><i class="fa-li fa fa-check"></i> Easy monthly installments</li>
+              <li><i class="fa-li fa fa-check"></i> Regular subjective and objective tests and assignments</li>
+              <li><i class="fa-li fa fa-check"></i> Regular Parent - Teacher meetings and Reports</li>
+          </ul>
+          <div class="text-center">
+          <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal1">View Details</button></div>
         </div>
       </div> 
+    </div>
     </div> 
 
-    <div class="col-sm-4">
+
+
+       <div class="col-sm-4 second">
+    <div class="col-sm-11"> 
       <div class="panel panel-default text-center">
-        <div class="panel-heading" >
-          <img src="{% static 'media/images/coursesecond.jpg' %}" ">
+        <div class="heading" >
+          <h2><b>Grades 9<sup>th</sup> and 10<sup>th</sup></b></h2>
+          <h3><b>Science</b> and <b>Maths</b></h3>
         </div>
-        <div class="panel-body" style="padding-top: 0em; text-align: left;">
-          <h2 style="font-weight: 600;"> High Secondary </h2>
-          <p>This is a very good course for students of 5th to 8th Class</p>
-          <button style="float:left;" type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">View Details</button>
+        <div class="panel-body" style="padding-top: 2em; text-align: left;">
+          <ul class="fa-ul">
+              <li ><i class="fa-li fa fa-check"></i>Science and Maths Syllabus according to CBSE/HBSE Board </li>
+              <li><i class="fa-li fa fa-check"></i> Regular classes under fixed schedule</li>
+              <li><i class="fa-li fa fa-check"></i> Revision at the end and Weekly Doubt sessions </li>
+              <li><i class="fa-li fa fa-check"></i> Regular subjective and objective tests and assignments</li>
+              <li><i class="fa-li fa fa-check"></i> Regular Parent Reports</li>
+          </ul>
+          <div class="text-center" style="vertical-align: bottom;">
+          <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal2">View Details</button></div>
         </div>
       </div> 
+    </div>
     </div> 
-   <div class="col-sm-4">
+
+
+
+  <div class="col-sm-4 third">
+    <div class="col-sm-11"> 
       <div class="panel panel-default text-center">
-        <div class="panel-heading" >
-          <img src="{% static 'media/images/coursethree.jpg' %}">
+        <div class="heading" >
+          <h2><b>Grades 11<sup>th</sup> and 12<sup>th</sup></b></h2>
+          <h3><b>PCM</b>( Board + JEE Mains)</h3>
         </div>
-        <div class="panel-body" style="padding-top: 0em; text-align: left;">
-          <h2 style="font-weight: 600;"> Senior Secondary</h2>
-          <p>This is a very good course for students of 5th to 8th Class</p>
-          <button type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#myModal3">View Details</button>
-        </div>
+        <div class="panel-body third" style="padding-top: 2em; text-align: left;">
+          <ul class="fa-ul">
+              <li ><i class="fa-li fa fa-check"></i>Experienced teachers for individual subjects</li>
+              <li><i class="fa-li fa fa-check"></i> Regular classes under fixed schedule</li>
+              <li><i class="fa-li fa fa-check"></i> Weekly Doubt Sessions</li>
+              <li><i class="fa-li fa fa-check"></i> Regular Subjective Tests on Board Pattern</li>
+              <li><i class="fa-li fa fa-check"></i> Regular Objective Tests on JEE Mains Pattern</li>
+          </ul>
+          <div class="text-center">
+          <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal3">View Details</button></div>
         </div>
       </div> 
+    </div>
     </div> 
-  </div>
+</div>
 
 
 <!-- Modal -->
@@ -77,10 +116,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Primary</h4>
+        <h4 class="modal-title">Grades 5<sup>th</sup> to 8<sup>th</sup></h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <p>
+        F L Academy's CBSE Long term course is designed to be a complete course to cover the entire syllabus designed by CBSE board and is geared towards bringing maximum performance from a child.
+        <ul style="font-size:2em;">
+          <li>Batches with maximum strength of 25-30 Students.</li>
+          <li>NCERT books will be followed.</li>
+          <li>Entire syllabus will be convered by end of February.</li>
+          <li>All chapters and concepts will be taught in detail.</li>
+          <li>Post every chapter there will be tests and assignments which will be solved and discussed.</li>
+        </ul>
+      </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -98,10 +146,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">High Secondary</h4>
+        <h4 class="modal-title">Grades 9<sup>th</sup> and 10<sup>th</sup></h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <p>F L Academy's CBSE Long term course prepares students to excel in Maths and Science. It is designed to complete the entire years Maths and Science Syllabus. This course clearly helps student get an early edge and also helps to instill confidence in the child.</p>
+        <ul style="font-size:2em;">
+          <li>Batches with maximum strength of 25-30 Students.</li>
+          <li>NCERT books and some reference books will be followed.</li>
+          <li>Entire syllabus will be convered by end of February.</li>
+          <li>All chapters and concepts will be taught in detail.</li>
+          <li>Weekly Tests and Doubt Sessions are conducted</li>
+        </ul>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -121,10 +176,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Senior Secondary</h4>
+        <h4 class="modal-title">Grades 11<sup>th</sup> and 12<sup>th</sup></h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <p>
+          F L Academy's JEE Main + Board course provides a chance to study from best teachers for JEE coaching in extremely personalised batches. This course is designed in such a unique way that it ensures excellent preparation for both JEE Mains exam as well as school board examinations.
+       <ul style="font-size:2em;">
+          <li>Batches with maximum strength of 25-30 Students.</li>
+          <li>NCERT books and some reference books will be followed.</li>
+          <li>Entire syllabus will be convered by end of February.</li>
+          <li>All chapters and concepts will be taught in detail.</li>
+          <li>Weekly Tests and Doubt Sessions are conducted</li>
+        </ul>
+      </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -134,14 +198,11 @@
   </div>
 </div>
 
-
-
-
 </div>
 
 
 <!-- footer -->
-  <div class="container-fluid footer" style="background-color: #404040; color: #fff; margin-top: 2em;margin-left: 0em;">
+  <div class="container-fluid footer" style="background-color: #404040; color: #fff; margin-left: 0em;">
   <h2 class="text-center" style="font-family: 'Josefin Slab'; font-size: 2em; font-weight: 600;">CONTACT US</h2>
   <div class="row">
     <div class="col-sm-12 text-center" >
@@ -163,13 +224,17 @@
   </div>
 </div>
 
+
+
+
+
+
+
+
 <style>
 
   body{
     font-size: 100%;
-  }
-  .modal{
-    margin-top: 5em;
   }
 
 .jumbotrono { 
@@ -217,57 +282,34 @@ p{
   font-size: 1.2em;
 }
 .panel {
-    border-radius:1em;
+    border-radius:0.4em;
     transition: box-shadow 0.5s;
+    font-family: 'Fira Sans', sans-serif;
+
 }
 
 .panel:hover {
     box-shadow: 5px 0px 40px rgba(0,0,0, .2);
 }
 
-.panel-footer .btn:hover {
-    border: 1px solid #00ffff;
-    background-color: #fff !important;
-    color: #f4511e;
-}
-.panel-footer .btn {
-    margin: 15px 0;
-    background-color: #3DA132;
-    color: #fff;
-}
 
-.panel-heading img{
-  width:100%; 
-  height: 18em; 
-  border-top-left-radius: 1em; 
-  border-top-right-radius: 1em;
-}
-.panel-heading {
-    background-color: #0066CC;
+.heading {
+    color:#fff;
+    font-size:1.5em;
+    padding-top: 0.8em;
+    padding-left: 1.5em;
+    background-color: rgba(244,81,30,0.8);
     border-bottom: 1px solid transparent;
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
-    border-bottom-left-radius: 0em;
-    border-bottom-right-radius: 0em;
-    padding: 0em;
-    text-align: center;
+    border-top-left-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    text-align: left;
 }
 
+.panel-body{
+  padding-top: 2em;
 
-
-.panel-footer {
-    background-color: #fff !important;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
-}
-
-.panel-footer h3 {
-    font-size: 32px;
-}
-
-.panel-footer h4 {
-    color: #aaa;
-    font-size: 14px;
 }
 .footer{
   background-color: #292c2f;
@@ -311,11 +353,70 @@ p{
   width: 38px;
   height: 38px;
   text-align: center;
-  line-height: 42px;
+  line-height: 1.5em;
   margin-bottom: 0.5em;
   margin-left: 0.5em;
   vertical-align: middle;
 }
+        
+.panel-body li{ /* first well;*/
+list-style-type:none;
+font-size: 1.8em;
+}
+
+.panel-body .btn {
+    border: 1px solid #f4511e;
+    background-color: #fff !important;
+    color: #f4511e;
+    margin: 15px 0;
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
+    border-bottom-left-radius: 3em;
+    border-bottom-right-radius: 3em;
+}
+.third .panel-body .btn{
+  border: 1px solid #90ce51;
+  color: #90ce51;
+}
+.second .panel-body .btn{
+  border: 1px solid #a05be5;
+  color: #a05be5;
+}
+.panel-body{
+  color:#808080;
+  font-size: 0.8em;
+}
+.panel-body li{
+  margin-bottom: 1.2em;
+}
+.panel-body:hover{
+  background-color: rgba(244,81,30,0.8) !important;
+  color: #fff;
+}
+
+.btn:focus,.btn:active {
+   outline: none !important;
+   box-shadow: none;
+}
+.second .heading{
+  background-color: rgba(160,91,229,0.8);
+}
+.second .panel-body:hover{
+  background-color: rgba(160,91,229,0.8) !important;
+}
+.third .heading{
+  background-color: rgba(144,206,81,0.8);
+}
+.third .panel-body:hover{
+  background-color: rgba(144,206,81,0.8) !important;
+}
+
+@media (max-width: 768px){ 
+  .details p{
+    margin-right: 1em;
+  }
+}
+
 
 </style>
 {% endblock content %}

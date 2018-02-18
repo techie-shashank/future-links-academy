@@ -1,10 +1,51 @@
 {% extends 'base.html' %}
+{% block title %}
+Tests Home
+{% endblock %}
+
 {% block content %}
 {% if perms.tests.add_test %}
-<a href="{% url 'tests:add_test_paper'%}">Add Test</a>
+	<a href="{% url 'tests:add_test_paper'%}" class="btn-lg btn-primary text-center center-block" style="width:20%;" role="button"> Add Test Paper</a><br>
 {% endif %}
-	{% for obj in object_list %}
-		<a href="{{ obj.get_absolute_url }}">{{obj.title}}</p><br>
-	{% endfor %}
+
+
+  <div class="container-fluid" >
+    <div class = "row">
+  <div class="text-left" style="margin-left:2em;">
+    <h2 style="font-family: 'Josefin Slab';  font-weight: 1000; font-size: 2.5em;">Recent Test Papers</h2><br>
+  </div>
+
+<div class="col-md-12" >
+    {% for obj in object_list %}
+   	<div class="col-sm-12">
+    	<div class="list-group">
+    		<a href="{{ obj.get_absolute_url }}" class="list-group-item">
+      		<h4 class="list-group-item-heading">{{ obj.title }}</h4>
+      	<p class="list-group-item-text"><h5><b>Subject</b>: {{obj.subject}}</h5></p>
+        <p class="list-group-item-text"><h5><b>Date</b>: {{obj.timestamp}}</h5></p>
+    	</a>
+	</div>
+	</div>
+{% endfor%}
+</div>
+</div>
+</div>
+
+<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  width:100%;
+  padding-top: 80px;
+  display:inline-block;
+  height:100%;
+}
+@media (max-width: 768px){ 
+  body{
+    padding-top: 0px;
+  }
+}
 
 {% endblock content %}

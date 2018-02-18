@@ -3,4 +3,14 @@
 	{% for obj in object_list %}
 		<a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a><br>
 	{% endfor%}
+
+	<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  padding-top: 80px;
+}
+</style>
 {% endblock %}

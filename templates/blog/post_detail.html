@@ -1,35 +1,85 @@
 {% extends 'base.html' %}
+{% block title %}
+{{object.title}}
+{% endblock %}
+
 {% block content %}
-	<h1>{{ object.title }}</h1><br>
-	<p>{{ object.description }}</p>
-    <p>
-{% if user.is_authenticated %}
-    {% if perms.tests.add_question %}
-    <a href="{% url 'blog:postupdate' slug=object.slug %}">Update Post</a>
-    <a href="{% url 'blog:postdelete' slug=object.slug %}">Delete Post</a>
-    {% endif %}
-        <button id="like-button" name="{{ object.slug }}" class="btn btn-primary" type="button">
+
+<div class="container-fluid top">
+    <div class="container-fluid">
+    <div class="panel-heading text-center">
+	   <h1><strong>{{ object.title }}</strong></h1><br>
+    </div>
+    {% load staticfiles %}
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="col-sm-12">
+            {% if object.pic %}
+            <img src="{{object.pic.url}}">
+            {% else %}
+            <img src="{% static 'media/images/no_image.jpg' %}" alt="No Image Found">
+            {% endif %}
+        <p>
+        <h6><b>Posted on</b>: {{object.timestamp}}</h6>
+        <h4><b>By</b>: {{object.owner}}</h4>
+        <h5><b>Category</b>: {{object.category}}</h5>
+        
+        {% if user.is_authenticated %}
+        {% if perms.tests.add_question %}
+            <a href="{% url 'blog:postupdate' slug=object.slug %}">Edit</a>&nbsp&nbsp&nbsp
+            <a href="{% url 'blog:postdelete' slug=object.slug %}">Delete</a>
+            <br>
+            <br>
+        {% endif %}
+        {% endif %}
+        </p>
+    </div>
+    </div>
+        <div class="col-sm-9">
+            <div class="col-sm-12">
+            <p>{{ object.description }}</p> 
+            {% if user.is_authenticated %}
+                <button id="like-button" name="{{ object.slug }}" style="float:right; " class="btn btn-primary" type="button">
         {{ name }}
         {{object.total_likes}}
         </button>
-{% endif %}
-</p>
-	  <div>
-            <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Send</button>
-    </form>
+        <br>
+        <br>
+        {% endif %}
+            </div> 
+
         </div>
-            <hr>
+    </div>
+    </div>
+    <div class="container-fluid">
+	  <div class="col-sm-12">
+            <form method="POST" class="post-form">{% csrf_token %}
+                {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Comment</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <h2 style="margin-left: 0.95em;">Comments</h2>
+    <hr>
+    <div class="col-sm-12">
+        <div class="col-sm-12">
             {% for comment in post.comments_set.all %}
-                <div class=" col-md-12 comment">
-                    <div >{{ comment.created_date }}</div>
-                    <strong>{{ comment.author }}</strong>
-                    <p>{{ comment.text|linebreaks }}</p>
-                </div>
-            {% empty %}
+<div class="panel panel-default " style="background-color: #EEEEEE;">
+    <div class="panel-body">
+      <h5><b>{{comment.author}}</b> <b>&middot</b> {{comment.timestamp}} </h5>
+        <p>{{ comment.text }}</p>
+  </div>
+</div>
+ {% empty %}
                 <p>No comments here yet :(</p>
             {% endfor %}
+        </div>
+</div>
+</div>
+</div>
+
+
 <script>
     $("#like-button").click(function(e){
   e.preventDefault();
@@ -48,4 +98,45 @@
 });
 
 </script>
+
+<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  padding-top: 60px;
+  background-color: #38455C;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+img{
+  width:100%; 
+  height: 12em; 
+  border-radius: 1em;
+}
+
+.top{
+    width:85%;
+    padding-top: 0em;
+    background-color: #fff;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+
+}
+p{
+    text-align: justify;
+}
+
+@media (max-width: 768px){ 
+  body{
+    padding-top: 0px;
+  }
+  .side{
+    display:inline-block;
+    float:center;
+  }
+}
+
+</style>
 {% endblock content %}

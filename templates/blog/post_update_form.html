@@ -1,7 +1,48 @@
 {% extends 'base.html' %}
+{% block title %}
+Update Post
+{% endblock %}
+
 {% block content %}
-	<form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Update" />
+
+{% load widget_tweaks %}
+
+<div class="contatiner-fluid top" style="width:70%;">
+<form method="post"  novalidate>
+  {% csrf_token %}
+
+  {% include 'base_form.html' with form=form %}
+
+  <button type="submit" class="btn btn-primary">Update</button>
 </form>
-{% endblock content %}
+</div>
+</div>
+
+<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  padding-top: 80px;
+}
+.top{
+	margin-left: 2em;
+}
+
+
+@media (max-width: 768px){ 
+  body{
+    padding-top: 0px;
+  }
+  .side{
+    display:inline-block;
+    float:center;
+  }
+  .container-fluid{
+    padding-top: 10px;
+
+  }
+}
+</style>
+{% endblock %}

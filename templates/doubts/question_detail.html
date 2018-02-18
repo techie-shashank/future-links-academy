@@ -1,29 +1,63 @@
 {% extends 'base.html' %}
+
+{% block title %}
+{{object.content}}
+{% endblock %}
 {% block content %}
-	<h1>{{ object.content }}</h1>
-  <p>
+<div class = "container-fluid top">
+  <div class="row ">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 text-center" style="padding: 1em;"> 
+	<h1 ><b>Q {{ object.content }}?</b>
     {% if user.is_authenticated %}
-          <button class="vote-button" name="{{ object.id }}" class="btn btn-primary" type="button">
-          {{ question_vote }}
+          <button  class=" btn-sm btn vote-button" name="{{ object.id }}" style=" border:2px solid #404040">
+          {{ question_vote }} |
           {{ object.total_votes}}
           </button>
     {% endif %}
-    </p>
+  </h1>
+  </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      
+    {% if user.is_authenticated %}
+      <div class="panel panel-default " style="background-color: #EEEEEE;">
+        <div class="panel-body">
 	<form method="POST"> {% csrf_token %}
 		{{form.as_p}}
-		<button type='submit'>Save</button>
+		<button type='submit' style="float:right;">Submit</button>
 	</form>
+</div>
+</div>
+{% endif %}
 	{% for ans,name in array%}
-		<p>{{ ans.text }}</p><br>
-		<p>
+  <div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default " style="background-color: #EEEEEE;">
+    <div class="panel-body">
+      <h5><b>{{user.username}}</b> <b>&middot</b> {{ans.timestamp}} </h5>
+		<p>{{ ans.text }}</p>
 		{% if user.is_authenticated %}
-        	<button class="upvote-button" name="{{ ans.id }}" class="btn btn-primary" type="button">
-        	{{ name }}
-        	{{ ans.total_upvotes}}
-        	</button>
+        <i class="glyphicon glyphicon-arrow-up"></i>
+        	<a style="cursor:pointer;" class="upvote-button" name="{{ ans.id }}">
+        	{{ name }} | {{ ans.total_upvotes}}
+        	</a>
 		{% endif %}
-		</p>
+  </div>
+</div>
+</div>
+  </div>
 	{% endfor %}
+</div>
+<div class="col-sm-2"></div>
+</div>
+
+
+
+
 
 <script>
     $(".upvote-button").click(function(e){
@@ -34,11 +68,10 @@
     data: {'pk': $(this).attr('name'), 'csrfmiddlewaretoken': '{{csrf_token}}'},
     dataType: "json",
     success: function(response){
-      $(e.target).text( response.name + " " + response.upvotes_count);
-      alert("success");
+      $(e.target).text( response.name + " | " + response.upvotes_count);
     },
     error: function(rs, r){
-      alert(rs.responseText);
+      alert("error");
     }
   });
 });
@@ -51,14 +84,48 @@ $(".vote-button").click(function(e){
     data: {'pk': $(this).attr('name'), 'csrfmiddlewaretoken': '{{csrf_token}}'},
     dataType:"json",
     success: function(response){
-      $(e.target).text( response.name + " " + response.upvotes_count);
-      alert("success");
+      $(e.target).text( response.name + " | " + response.upvotes_count);
     },
     error: function(rs, r){
-      alert(rs.responseText);
+      alert("error");
     }
   });
 });
 
 </script>
+
+<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  padding-top: 65px;
+  font-family: 'Fira Sans', sans-serif;
+  {% load staticfiles %}
+  background-image: url('{% static 'media/images/blog_background1.jpg' %}');
+  background-attachment: fixed;
+}
+
+.top{
+      width:80%;
+    background-color: #fff;
+    border-radius:1em;
+}
+
+@media (max-width: 768px){ 
+  body{
+    padding-top: 0px;
+  }
+  .side{
+    display:inline-block;
+    float:center;
+  }
+  .container-fluid{
+    padding-top: 10px;
+
+  }
+}
+
+</style>
 {% endblock content %}

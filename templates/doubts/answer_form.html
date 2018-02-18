@@ -1,10 +1,38 @@
 {% extends 'base.html' %}
+
+{% block title %}
+answer_form
+{% endblock %}
+
 {% block content %}
-	{% if form.errors %}
-	{{ form.errors }}
-	{% endif %}
-	<form method="POST" > {% csrf_token %}
-		{{form.as_p}}
-		<button type='submit'>Save</button>
-	</form>
+
+
+
+{% load widget_tweaks %}
+
+<div class="contatiner-fluid top" style="width:70%;">
+<form method="post" novalidate>
+  {% csrf_token %}
+
+  {% include 'base_form.html' with form=form %}
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>
+
+
+	<style>
+.navbar{
+  background-color: #404040;
+}
+
+body{
+  padding-top: 80px;
+}
+
+.top{
+	margin-left: 2em;
+}
+</style>
 {% endblock content %}

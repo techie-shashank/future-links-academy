@@ -17,10 +17,10 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-	
     url(r'^$',views.TestList.as_view(), name="testlist"),
     url(r'^add_test_paper/$',views.AddTestView.as_view(), name="add_test_paper"),
     url(r'^add_test_paper/add_question/(?P<slug>[\w-]+)/$',views.AddQuestionView.as_view(), name="add_question"),
     url(r'^add_test_paper/marksheet/(?P<slug>[\w-]+)/$',views.Marksheet.as_view(), name="marksheet"),
     url(r'^(?P<slug>[\w-]+)/$',views.TestPaperView.as_view(), name="testpaper"),
+
 ]
