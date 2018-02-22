@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}
 Doubts Home
-{% endblock %}
+{% endblock title %}
 
 {% block content %}
 
@@ -20,11 +20,13 @@ Doubts Home
 	</div>
 	</div>
 {% endfor%}
-</div>
+</div> 
 
 
-<div class="col-md-3" >
+<div class="col-md-3" > 
+  {% if user.is_authenticated %}
 		<a href="{% url 'doubts:AskQuestion' %}"  class="btn-lg btn-primary text-center center-block" style="width:80%;" role="button"> Ask Question </a><br>
+  {% endif %}
 <div class="col-sm-12 text-center">
     <div class="panel panel-primary">
       <div class="panel-heading">Frequently Asked</div>
@@ -36,8 +38,8 @@ Doubts Home
 </div>
 </div>
 </div>
-</div>
-</div>
+
+
 <style>
 .navbar{
   background-color: #404040;
@@ -112,5 +114,5 @@ body{
     color: #aaa;
     font-size: 14px;
 }
-
+</style>
 {% endblock content %}

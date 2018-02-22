@@ -73,7 +73,7 @@ def login_view(request):
                 login(request,user)
                 return render(request,'home.html',{'errors': msg})
         else:
-            return HttpResponse('invalid');
+            return HttpResponse('invalid')
     
 
 def account_activation_sent(request):

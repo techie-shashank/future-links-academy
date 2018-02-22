@@ -24,7 +24,7 @@ class DoubtsHome(generic.ListView):
 		context['popular'] = popular
 		return context
 
-
+ 
 
 class QuestionDetail(FormMixin,generic.DetailView):
 	template_name='doubts/question_detail.html'
@@ -64,6 +64,7 @@ class QuestionDetail(FormMixin,generic.DetailView):
 	def form_valid(self, form,*args,**kwargs):
 		instance = form.save(commit=False)
 		instance.question = self.object
+		instance.answered_by = self.request.user
 		form.save()
 		return super(QuestionDetail, self).form_valid(form)
 

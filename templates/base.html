@@ -51,7 +51,7 @@
         <li ><a href="{% url 'users:logout' %}">Logout</a></li>
         {% else %}       
         <li ><a href="{% url 'users:register' %}">Register</a></li>
-        <li ><a href="{% url 'users:login' %}" data-toggle="modal" data-target="#login">Login</a></li>
+        <li ><a style="outline:none;" href="{% url 'users:login' %}" data-toggle="modal" data-target="#login">Login</a></li>
         {% endif %}
           </ul>
         </li>
@@ -187,6 +187,7 @@ h1{
     margin-left: 0.5em;
   }
 }
+
 </style>
 	{% block content %}
 	{% endblock content %}

@@ -38,7 +38,7 @@
   <div class="col-sm-12">
     <div class="panel panel-default " style="background-color: #EEEEEE;">
     <div class="panel-body">
-      <h5><b>{{user.username}}</b> <b>&middot</b> {{ans.timestamp}} </h5>
+      <h5><b>{{ ans.answered_by }}</b> <b>&middot</b> {{ans.timestamp}} </h5>
 		<p>{{ ans.text }}</p>
 		{% if user.is_authenticated %}
         <i class="glyphicon glyphicon-arrow-up"></i>

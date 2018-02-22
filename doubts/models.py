@@ -34,6 +34,7 @@ class Answers(models.Model):
 	text     	= models.CharField(max_length=5000)
 	upvotes  	= models.ManyToManyField(User, related_name='upvote')
 	timestamp	= models.DateTimeField(auto_now_add= True)
+	answered_by = models.ForeignKey(User,default=1)
 
 	@property
 	def total_upvotes(self):
