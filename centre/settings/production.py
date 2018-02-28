@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'doubts.apps.DoubtsConfig',
     'tests.apps.TestsConfig',
     'Users.apps.UsersConfig',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'widget_tweaks',
 ]
 
