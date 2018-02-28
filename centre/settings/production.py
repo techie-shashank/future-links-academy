@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'doubts.apps.DoubtsConfig',
     'tests.apps.TestsConfig',
     'Users.apps.UsersConfig',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'widget_tweaks',
 ]
 
@@ -68,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'centre.urls'
