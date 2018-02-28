@@ -16,10 +16,4 @@ class Migration(migrations.Migration):
             model_name='question',
             name='id',
         ),
-        migrations.AddField(
-            model_name='question',
-            name='num',
-            field=models.AutoField(default=1, primary_key=True, serialize=False),
-            preserve_default=False,
-        ),
     ]
