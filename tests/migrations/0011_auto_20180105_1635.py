@@ -38,12 +38,6 @@ class Migration(migrations.Migration):
             model_name='choices',
             name='two',
         ),
-        migrations.AddField(
-            model_name='choices',
-            name='id',
-            field=models.AutoField(auto_created=True, serialize=False, verbose_name='ID'),
-            preserve_default=False,
-        ),
         migrations.AlterField(
             model_name='choices',
             name='question',
