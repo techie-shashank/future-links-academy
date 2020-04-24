@@ -17,21 +17,23 @@ from django.conf.urls import include,url
 from django.contrib import admin
 from django.views.generic import TemplateView
 from tests.views import AboutView
+from blog.views import HomePageView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views
 
 
 urlpatterns = [
-    
+
     
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.login,{'template_name': 'home.html'}, name="home"),
+    url(r'^$', HomePageView.as_view(), name="home"),
     url(r'^blog/', include('blog.urls',namespace="blog")),
     url(r'^doubts/',include('doubts.urls',namespace="doubts")),
     url(r'^tests/',include('tests.urls',namespace="tests")),
     url(r'^users/',include('Users.urls',namespace="users")),
     url(r'^about/$',AboutView.as_view(),name="about"),
+    url(r'^notes/', include("notes.urls", namespace="notes")),
 ]
 
 if settings.DEBUG:

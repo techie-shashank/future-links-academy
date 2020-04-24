@@ -1,0 +1,106 @@
+/* Google font */
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+body {
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* styling paper */
+#paper {
+    width: 80%;
+    position: relative;
+    margin: 66px auto;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px #888;
+    font-family: 'Dancing Script', cursive;
+}
+
+/* styling red vertical line */
+.vl {
+    border-left: 2px solid red;
+    height: 100%;
+    position: absolute;
+    left: 4%;
+    margin-left: -3px;
+    top: 0;
+}
+
+/* styling blue horizontal lines */
+#pattern {
+    background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+    padding-bottom: 40px;
+}
+
+/* styling text content */
+#top-content {
+    padding-top: 6px;
+    padding-left: 56px;
+    padding-right: 16px;
+    line-height: 25px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 19px;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+}
+
+#content {
+    padding-top: 6px;
+    padding-left: 56px;
+    padding-right: 16px;
+    line-height: 25px;
+    font-size: 19px;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    margin: 0px 0px;
+}
+
+#content p{
+    margin: 0px 0 18px;
+}
+
+#content h2 {
+    margin: 21px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.last-page-content {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.bottomright {
+    font-size: 18px;
+    padding: 8px 82px;
+    cursor: pointer;
+    color:#333;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.bottomleft {
+    font-size: 18px;
+    padding: 8px 82px;
+    cursor: pointer;
+    color:#333;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.hide {
+    display: None;
+}
+
+.sub-list {
+    cursor: pointer;
+}
+
+

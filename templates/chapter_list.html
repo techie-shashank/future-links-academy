@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block local_styles %}
+    <link rel="stylesheet" href="{% static 'css/notes.css' %}">
+{% endblock %}
+
+{% block local_scripts %}
+{% endblock %}
+
+{% block title %}
+    Future Links Academy - Notes
+{% endblock %}
+
+{% block content %}
+    <div id="paper">
+        <div class="vl"></div>
+        <div id="pattern">
+            <div id="content">
+                {% for chapter in object_list %}
+                    <h2>{{ chapter.chapter_no }}. {{ chapter.name }}</h2>
+                        <div class="sub-list">
+                            <ul>
+                                {% for topic in chapter.chaptertopic_set.all %}
+                                    <li><a href="{% url 'notes:topic_detail' topic.id %}">{{ chapter.chapter_no }}.{{ topic.topic_no }} {{ topic.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

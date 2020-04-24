@@ -1,0 +1,65 @@
+.home-layout {
+    font-family: 'Cabin Sketch', sans-serif;
+}
+
+.jumbotron {
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Cabin Sketch', sans-serif;
+    font-weight: 400;
+    position: relative;
+    font-size: 100px;
+    margin: 0px;
+}
+
+.text-carousel {
+    font-weight: 400;
+    letter-spacing: 0.20vh;
+    font-size: 2em;
+    display: inline-block;
+}
+
+.homepage-text h1 {
+    position: absolute;
+    top: 31%;
+    left: 32%;
+    text-align: center;
+    font-size: 88px;
+    width: 472px;
+}
+
+.footer{
+  background-color: #292c2f;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  width: 100%;
+}
+
+.footer p{
+   display: inline-block;
+  color: #ffffff;
+}
+
+.details i{
+  background-color:  #33383b;
+  color: #ffffff;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  margin: 10px 15px;
+  vertical-align: middle;
+}
+.details p{
+  margin-right: 6em;
+}
+
+@media (max-width: 768px){
+  .details p{
+    margin-right: 1em;
+  }
+}

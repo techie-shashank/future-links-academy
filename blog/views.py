@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.views.generic import TemplateView
+
 from .models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import AddPostCreateForm, CommentForm
@@ -12,6 +14,17 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import UpdateView
 from django.forms.models import modelform_factory
 from django import forms
+
+from notes import models as notes_models
+
+
+class HomePageView(TemplateView):
+	template_name = 'home.html'
+
+	def get_context_data(self, *args, **kwargs):
+		context = super(HomePageView, self).get_context_data(*args, **kwargs)
+		context['standards'] = notes_models.Standard.objects.all()
+		return context
 
 
 class BlogHome(generic.ListView):
