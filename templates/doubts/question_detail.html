@@ -41,7 +41,6 @@
       <h5><b>{{ ans.answered_by }}</b> <b>&middot</b> {{ans.timestamp}} </h5>
 		<p>{{ ans.text }}</p>
 		{% if user.is_authenticated %}
-{#        <i class="glyphicon glyphicon-arrow-up"></i>#}
         	<a style="cursor:pointer;" class="upvote-button" name="{{ ans.id }}">
         	{{ name }} | {{ ans.total_upvotes}}
         	</a>
