@@ -6,7 +6,6 @@
     background-size: cover;
     background-attachment: fixed;
     color: #ffffff;
-    height: 100%;
     overflow: hidden;
     font-family: 'Cabin Sketch', sans-serif;
     font-weight: 400;
@@ -22,14 +21,6 @@
     display: inline-block;
 }
 
-.homepage-text h1 {
-    position: absolute;
-    top: 31%;
-    left: 32%;
-    text-align: center;
-    font-size: 88px;
-    width: 472px;
-}
 
 .footer{
   background-color: #292c2f;
@@ -56,6 +47,14 @@
 }
 .details p{
   margin-right: 6em;
+}
+
+.video-section {
+    margin: 50px 0;
+}
+
+.video-desc {
+    font-size: 20px;
 }
 
 @media (max-width: 768px){

@@ -20,6 +20,11 @@
   width: 0;
 }
 
+.navbar li{
+    font-family: 'Cabin Sketch';
+    font-weight: 800;
+}
+
 .dropdown-submenu:hover>a:after {
     border-left-color:#555;
  }
@@ -27,16 +32,15 @@
 .dropdown-menu > li > a:hover, .dropdown-menu > .active > a:hover {
   text-decoration: none;
 }
-
-.solid {
-    top: 0;
-    width: 100%;
-    z-index: 9999 !important;
-    background-color: #404040;
+.center-div {
+    margin: 10% auto;
+    max-width: 700px;
+    height: 100px;
+    border-radius: 3px;
+    text-align: center;
 }
 
 @media (max-width: 767px) {
-
   .navbar-nav  {
      display: inline;
   }
@@ -45,6 +49,9 @@
   }
   .navbar-default .navbar-toggle .icon-bar {
     background-color: #fff;
+  }
+  .navbar-header {
+      background-color: #404040;
   }
   .navbar-default .navbar-nav .dropdown-menu > li > a {
     background-color: #ccc;
@@ -76,6 +83,11 @@
    li.dropdown.open {
     border: 0px solid red;
    }
+   .navbar-toggle {
+       float: left;
+       margin-right: 0px;
+       margin-left: 15px;
+   }
 
 }
 
@@ -98,7 +110,7 @@
         margin-left: 40px;
     }
 
-    .navbar-nav li a:hover, .navbar-nav li.active a {
+    .navbar-nav li a:hover, .navbar-nav li a:active {
         color: #404040 !important;
         background-color: #fff !important;
     }
@@ -119,11 +131,6 @@
         line-height: 1.42857143 !important;
         letter-spacing: 1px;
         border-radius: 0;
-    }
-
-    .navbar li{
-        font-family: 'Cabin Sketch';
-        font-weight: 800;
     }
 
     .navbar li a, .navbar .navbar-brand {

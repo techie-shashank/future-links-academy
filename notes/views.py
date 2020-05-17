@@ -1,4 +1,4 @@
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 
 from . models import *
 
@@ -19,3 +19,7 @@ class TopicDetailView(BasePageMixin, DetailView):
 class ChapterListView(BasePageMixin, ListView):
     model = Chapter
     template_name = 'chapter_list.html'
+
+
+class NotesPageView(TemplateView):
+    template_name = 'notes_page.html'

@@ -103,4 +103,9 @@ body {
     cursor: pointer;
 }
 
+.notes-content {
+    font-family: 'Cabin Sketch', sans-serif;
+    font-size: 88px;
+}
+
 
