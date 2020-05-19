@@ -22,11 +22,21 @@
         <script src="{% static 'js/libs/jquery.lettering-0.6.1.min.js' %}"></script>
         <script src="{% static 'js/libs/jquery.textillate.js' %}"></script>
         <script src="{% static 'js/common/base.js' %}"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167087184-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-167087184-1');
+        </script>
+
     {% endblock %}
 
     <title>{% block title %}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="google-site-verification" content="pMOfTZwQ9FdrZEP2x6YMXxan7KiWxOcgrQ3eGomfjnQ" />
 </head>
 <body>
 
