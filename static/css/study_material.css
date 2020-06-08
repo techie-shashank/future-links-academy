@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+.study-material-content li, p, a{
+    color: #000 !important;
+}
+
+.just-padding {
+    padding: 50px;
+    margin-top: 30px;
+}
+
+.list-group.list-group-root {
+    padding: 0;
+    overflow: hidden;
+}
+
+.list-group.list-group-root .list-group {
+    margin-bottom: 0;
+}
+
+.list-group.list-group-root .list-group-item {
+    border-radius: 0;
+    border-width: 1px 0 0 0;
+}
+
+.list-group.list-group-root > .list-group-item:first-child {
+    border-top-width: 0;
+}
+
+.list-group.list-group-root > .list-group > .list-group-item {
+    padding-left: 30px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group-item {
+    padding-left: 45px;
+}
+
+.list-group-item .glyphicon {
+    margin-right: 5px;
+}
+
+.study-material-content {
+    font-family: 'Cabin Sketch', sans-serif;
+    font-size: 20px;
+}
+
+.study-material-content .video-desc {
+    padding: 20px;
+}
+
+.navbar-default .navbar-nav>li:hover> a {
+    color: #404040 !important;
+}
+
+@media (min-width: 768px) {
+    .navbar-default .navbar-nav>li>a {
+        color: #fff !important;
+    }
+    .video-box {
+        padding: 20px;
+    }
+}
+
+.navbar-toggle {
+    float: left !important;
+}
