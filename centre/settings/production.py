@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'tests.apps.TestsConfig',
     'Users.apps.UsersConfig',
     'notes.apps.NotesConfig',
+    'study_material.apps.StudyMaterialConfig',
     'widget_tweaks',
 ]
 
