@@ -2,31 +2,86 @@
 {% load static %}
 
 {% block local_styles %}
-    <link rel="stylesheet" href="{% static 'css/notes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/study_material.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 {% endblock %}
 
 {% block local_scripts %}
 {% endblock %}
 
 {% block title %}
-    Future Links Academy - Notes
+    Future Links Academy - Study Material
 {% endblock %}
 
 {% block content %}
-    <div id="paper">
-        <div class="vl"></div>
-        <div id="pattern">
-            <div id="content">
-                {% for chapter in object_list %}
-                    <h2>{{ chapter.chapter_no }}. {{ chapter.name }}</h2>
-                        <div class="sub-list">
-                            <ul>
-                                {% for topic in chapter.chaptertopic_set.all %}
-                                    <li><a href="{% url 'notes:topic_detail' topic.id %}">{{ chapter.chapter_no }}.{{ topic.topic_no }} {{ topic.name }}</a></li>
-                                {% endfor %}
-                            </ul>
+    <div class="study-material-content">
+        <div class="just-padding">
+            <div class="list-group list-group-root well">
+
+                <a href="#item-1" class="list-group-item" data-toggle="collapse">
+                    <span class="glyphicon glyphicon-chevron-right"></span>Class 9
+                </a>
+                <div class="list-group collapse" id="item-1">
+
+                    <a href="#item-1-1" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i>Science
+                    </a>
+                        <div class="list-group collapse" id="item-1-1">
+                            {% for object in object_list %}
+                                {% if object.subject == 1 and object.standard == 9 %}
+                                    <a href="{% url "study_material:topic_detail" object.id %}" class="list-group-item">{{ object.chapter_no }} - {{ object.chapter_name }}</a>
+                                {% endif %}
+                            {% endfor %}
                         </div>
-                {% endfor %}
+                </div>
+                <a href="#item-2" class="list-group-item" data-toggle="collapse">
+                    <span class="glyphicon glyphicon-chevron-right"></span>Class 10
+                </a>
+                <div class="list-group collapse" id="item-2">
+
+                    <a href="#item-1-2" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i>Science
+                    </a>
+                        <div class="list-group collapse" id="item-1-2">
+                            {% for object in object_list %}
+                                {% if object.subject == 1 and object.standard == 10 %}
+                                    <a href="{% url "study_material:topic_detail" object.id %}" class="list-group-item">{{ object.chapter_no }} - {{ object.chapter_name }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                </div>
+                <a href="#item-3" class="list-group-item" data-toggle="collapse">
+                    <span class="glyphicon glyphicon-chevron-right"></span>Class 11
+                </a>
+                <div class="list-group collapse" id="item-3">
+
+                    <a href="#item-1-3" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i>Physics
+                    </a>
+                        <div class="list-group collapse" id="item-1-3">
+                            {% for object in object_list %}
+                                {% if object.subject == 3 and object.standard == 11 %}
+                                    <a href="{% url "study_material:topic_detail" object.id %}" class="list-group-item">{{ object.chapter_no }} - {{ object.chapter_name }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                </div>
+                <a href="#item-4" class="list-group-item" data-toggle="collapse">
+                    <span class="glyphicon glyphicon-chevron-right"></span>Class 12
+                </a>
+                <div class="list-group collapse" id="item-4">
+
+                    <a href="#item-1-4" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i>Physics
+                    </a>
+                        <div class="list-group collapse" id="item-1-4">
+                            {% for object in object_list %}
+                                {% if object.subject == 3 and object.standard == 12 %}
+                                    <a href="{% url "study_material:topic_detail" object.id %}" class="list-group-item">{{ object.chapter_no }} - {{ object.chapter_name }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                </div>
             </div>
         </div>
     </div>

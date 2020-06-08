@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^users/',include('Users.urls',namespace="users")),
     url(r'^about/$',AboutView.as_view(),name="about"),
     url(r'^notes/', include("notes.urls", namespace="notes")),
+    url(r'^study/material/', include("study_material.urls", namespace="study_material")),
 ]
 
 if settings.DEBUG:
