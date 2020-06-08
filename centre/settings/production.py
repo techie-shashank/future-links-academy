@@ -39,7 +39,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY','rwcpf%9orlx2as*xb-ucyde4jsnsqb87h&1kkz
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.futurelinksacademy.com', 'futurelinksacademy.com', 'flacademy.herokuapp.com']
 
@@ -181,3 +181,5 @@ CSRF_COOKIE_SECURE              = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = True
 SECURE_HSTS_SECONDS             = 1000000
 SECURE_FRAME_DENY               = True
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
