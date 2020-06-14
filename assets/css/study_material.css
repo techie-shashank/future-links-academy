@@ -52,7 +52,7 @@
     padding: 20px;
 }
 
-.navbar-default .navbar-nav>li:hover> a {
+.navbar-default .navbar-nav>li> a:hover {
     color: #404040 !important;
 }
 
