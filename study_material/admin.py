@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from.models import StudyMaterial, ChapterDetail
+from.models import StudyMaterial, ChapterDetail, PreviousYearPapers
 
 
 class StudyMaterialAdmin(admin.ModelAdmin):
@@ -11,3 +11,4 @@ class StudyMaterialAdmin(admin.ModelAdmin):
 
 admin.site.register(StudyMaterial, StudyMaterialAdmin)
 admin.site.register(ChapterDetail, admin.ModelAdmin)
+admin.site.register(PreviousYearPapers, admin.ModelAdmin)

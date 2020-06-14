@@ -1,0 +1,28 @@
+.content {
+    color: #000 !important;
+    font-family: 'Cabin Sketch', sans-serif;
+    font-size: 20px;
+    margin: 50px;
+}
+
+.navbar-default .navbar-nav>li:hover> a {
+    color: #404040 !important;
+}
+
+.about-heading {
+    font-size: 50px;
+}
+
+@media (min-width: 768px) {
+    .navbar-default .navbar-nav>li>a {
+        color: #fff !important;
+    }
+}
+
+.navbar-toggle {
+    float: left !important;
+}
+
+.about-us-content {
+    padding: 50px 10px;
+}

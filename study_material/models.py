@@ -17,7 +17,7 @@ class ChapterDetail(models.Model):
 
     def __str__(self):
         return 'standard: {} - Subject: {} - Chapter: {}'.format(
-            self.standard, constants.SUBJECT_CHOICES[self.subject][1], self.chapter_no
+            self.standard, dict(constants.SUBJECT_CHOICES)[self.subject], self.chapter_no
         )
 
 
@@ -34,3 +34,19 @@ class StudyMaterial(models.Model):
 
     def __str__(self):
         return 'Chapter: {} - Topic: {}'.format(self.chapter, self.topic_name)
+
+
+class PreviousYearPapers(models.Model):
+    subject = models.PositiveSmallIntegerField(choices=constants.SUBJECT_CHOICES)
+    standard = models.PositiveSmallIntegerField(choices=constants.STANDARD_CHOICES)
+    set_no = models.CharField(max_length=24)
+    year = models.PositiveIntegerField()
+    file = models.FileField(upload_to='media/')
+
+    class Meta(object):
+        unique_together = ('subject', 'standard', 'year',)
+
+    def __str__(self):
+        return 'standard: {} - Subject: {} - Year: {}'.format(
+            self.standard, dict(constants.SUBJECT_CHOICES)[self.subject], self.year
+        )

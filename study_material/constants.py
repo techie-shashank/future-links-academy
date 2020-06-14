@@ -5,12 +5,14 @@ SCIENCE = 1
 MATHS = 2
 PHYSICS = 3
 CHEMISTRY = 4
+BIOLOGY = 5
 
 SUBJECT_CHOICES = (
     (SCIENCE, 'Science'),
     (MATHS, 'Maths'),
     (CHEMISTRY, 'Chemistry'),
     (PHYSICS, 'Physics'),
+    (BIOLOGY, 'Biology'),
 )
 
 NINTH = 9

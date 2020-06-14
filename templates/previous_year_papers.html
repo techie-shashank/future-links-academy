@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block local_styles %}
+    <link rel="stylesheet" href="{% static 'css/study_material.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+{% endblock %}
+
+{% block local_scripts %}
+{% endblock %}
+
+{% block title %}
+    Future Links Academy - Previous Year Papers
+{% endblock %}
+
+{% block content %}
+    <div class="study-material-content">
+        <div class="just-padding">
+        <h1 class="text-center">Previous Year Question Papers</h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Class 10</div>
+                                <div class="panel-body">
+                                    <a href="#item-2-1" class="list-group-item" data-toggle="collapse">
+                                    <i class="glyphicon glyphicon-chevron-right"></i>Science
+                                </a>
+                                    <div class="list-group collapse" id="item-2-1">
+                                        {% for object in object_list %}
+                                            {% if object.subject == 1 and object.standard == 10 %}
+                                                <li class="list-group-item">Year - {{ object.year }} (Set -{{ object.set_no }}) - <a href="{{ object.file.url }}" target="_blank">Click here to Download</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                <a href="#item-2-2" class="list-group-item" data-toggle="collapse">
+                                    <i class="glyphicon glyphicon-chevron-right"></i>Maths
+                                </a>
+                                    <div class="list-group collapse" id="item-2-2">
+                                        {% for object in object_list %}
+                                            {% if object.subject == 2 and object.standard == 10 %}
+                                                <li class="list-group-item">Year - {{ object.year }} (Set -{{ object.set_no }}) - <a href="{{ object.file.url }}" target="_blank">Click here to Download</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Class 12</div>
+                                <div class="panel-body">
+                                    <a href="#item-4-1" class="list-group-item" data-toggle="collapse">
+                                    <i class="glyphicon glyphicon-chevron-right"></i>Physics
+                                </a>
+                                    <div class="list-group collapse" id="item-4-1">
+                                        {% for object in object_list %}
+                                            {% if object.subject == 3 and object.standard == 12 %}
+                                                <li class="list-group-item">Year - {{ object.year }} (Set -{{ object.set_no }}) - <a href="{{ object.file.url }}" target="_blank">Click here to Download</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                <a href="#item-4-2" class="list-group-item" data-toggle="collapse">
+                                    <i class="glyphicon glyphicon-chevron-right"></i>Chemistry
+                                </a>
+                                    <div class="list-group collapse" id="item-4-2">
+                                        {% for object in object_list %}
+                                            {% if object.subject == 4 and object.standard == 12 %}
+                                                <li class="list-group-item">Year - {{ object.year }} (Set -{{ object.set_no }}) - <a href="{{ object.file.url }}" target="_blank">Click here to Download</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                <a href="#item-4-3" class="list-group-item" data-toggle="collapse">
+                                    <i class="glyphicon glyphicon-chevron-right"></i>Maths
+                                </a>
+                                    <div class="list-group collapse" id="item-4-3">
+                                        {% for object in object_list %}
+                                            {% if object.subject == 2 and object.standard == 12 %}
+                                                <li class="list-group-item">Year - {{ object.year }} (Set -{{ object.set_no }}) - <a href="{{ object.file.url }}" target="_blank">Click here to Download</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                <a href="#item-4-4" class="list-group-item" data-toggle="collapse">
+                                    <i class="glyphicon glyphicon-chevron-right"></i>Biology
+                                </a>
+                                    <div class="list-group collapse" id="item-4-4">
+                                        {% for object in object_list %}
+                                            {% if object.subject == 5 and object.standard == 12 %}
+                                                <li class="list-group-item">Year - {{ object.year }} (Set -{{ object.set_no }}) - <a href="{{ object.file.url }}" target="_blank">Click here to Download</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
