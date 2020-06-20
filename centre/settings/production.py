@@ -39,7 +39,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY','rwcpf%9orlx2as*xb-ucyde4jsnsqb87h&1kkz
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.futurelinksacademy.com', 'futurelinksacademy.com', 'flacademy.herokuapp.com']
 
