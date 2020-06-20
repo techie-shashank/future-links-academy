@@ -183,7 +183,6 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS  = True
 SECURE_HSTS_SECONDS             = 1000000
 SECURE_FRAME_DENY               = True
 
- = 'libs.s3.MediaFilesStorage'
 # STATICFILES_STORAGE = 'libs.s3.HerokuStaticS3BotoStorage'
 
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
