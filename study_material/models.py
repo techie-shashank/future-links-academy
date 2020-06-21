@@ -43,9 +43,6 @@ class PreviousYearPapers(models.Model):
     year = models.PositiveIntegerField()
     file = models.FileField(upload_to='media/')
 
-    class Meta(object):
-        unique_together = ('subject', 'standard', 'year',)
-
     def __str__(self):
         return 'standard: {} - Subject: {} - Year: {}'.format(
             self.standard, dict(constants.SUBJECT_CHOICES)[self.subject], self.year
