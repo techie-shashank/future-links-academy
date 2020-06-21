@@ -18,10 +18,10 @@
         <div class="just-padding">
             <div class="list-group list-group-root well">
                 {% for object in object_list %}
-                    <a href="#item-1" class="list-group-item" data-toggle="collapse">
+                    <a href="#item-{{ object.id }}" class="list-group-item" data-toggle="collapse">
                         <span class="glyphicon glyphicon-chevron-right"></span>{{ object.topic_name }}
                     </a>
-                    <div class="list-group collapse container-fluid" id="item-1">
+                    <div class="list-group collapse container-fluid" id="item-{{ object.id }}">
                         <div class="row video-section">
                             <div class="col-sm-7">
                                 <p class="video-desc">
