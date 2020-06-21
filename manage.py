@@ -2,8 +2,11 @@
 import os
 import sys
 
+from centre.utils import get_default_django_settings_module
+
+
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "centre.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", get_default_django_settings_module())
     try:
         from django.core.management import execute_from_command_line
     except ImportError:
