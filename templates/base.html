@@ -10,6 +10,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="{% static 'css/libs/animate.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/common/base.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     {% endblock %}
 
     {% block local_styles %}
@@ -38,7 +39,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="pMOfTZwQ9FdrZEP2x6YMXxan7KiWxOcgrQ3eGomfjnQ" />
 </head>
-<body>
+<body id="body">
+<div class="wrapper">
 
 
 <nav class="navbar navbar-default navbar-fixed-top solid">
@@ -62,13 +64,21 @@
     </div>
 </nav>
 
-<div>
+<div class="base-content">
     {% block content %}
     {% endblock content %}
 </div>
+<footer class="text-center footer-wrapper">
+  <a class="up-arrow" href="#body" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>For more info, Contact us at <a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">+919896761614</a></p>
+</footer>
+
 
 {% block local_scripts %}
 {% endblock %}
+</div>
 
 </body>
 </html>
